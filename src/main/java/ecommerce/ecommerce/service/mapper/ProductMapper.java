@@ -1,9 +1,6 @@
-package ecommerce.ecommerce.service.product.mapper;
+package ecommerce.ecommerce.service.mapper;
 
-import ecommerce.ecommerce.core.Dtos.ProductDtos.CreateProductRequest;
-import ecommerce.ecommerce.core.Dtos.ProductDtos.GetAllProductResponse;
-import ecommerce.ecommerce.core.Dtos.ProductDtos.GetByIdResponse;
-import ecommerce.ecommerce.core.Dtos.ProductDtos.UpdateProductRequest;
+import ecommerce.ecommerce.core.Dtos.ProductDtos.*;
 import ecommerce.ecommerce.model.Product;
 import org.springframework.stereotype.Component;
 
@@ -49,6 +46,14 @@ public class ProductMapper {
     // update
 
     public void mappingToProductForUpdate(UpdateProductRequest updateProductRequest,Product product){
+        product.setProductName(updateProductRequest.getProductName());
+        product.setPrice(updateProductRequest.getPrice());
+        product.setDescription(updateProductRequest.getDescription());
+        product.setUnitInStock(updateProductRequest.getUnitInStock());
+        product.setSku(updateProductRequest.getSku());
+        product.setCategories(updateProductRequest.getCategories());
+    }
+    public void mappingToProductForUpdateById(UpdateProductByIdRequest updateProductRequest, Product product){
         product.setProductName(updateProductRequest.getProductName());
         product.setPrice(updateProductRequest.getPrice());
         product.setDescription(updateProductRequest.getDescription());
