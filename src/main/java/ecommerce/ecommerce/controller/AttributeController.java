@@ -30,18 +30,18 @@ public class AttributeController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addAttribute(CreateAttributeRequest createAttributeRequest) {
+    public ResponseEntity<?> addAttribute(@RequestBody CreateAttributeRequest createAttributeRequest) {
         this.attributeService.addAttribute(createAttributeRequest);
         return ResponseEntity.ok("Attributed added succesfully");
     }
 
-    @PutMapping
-    public ResponseEntity<?> updateAttribute(UpdateAttributeRequest updateAttributeRequest,int id) {
+    @PutMapping("/id/{id}")
+    public ResponseEntity<?> updateAttribute(@RequestBody UpdateAttributeRequest updateAttributeRequest, @PathVariable int id) {
         this.attributeService.updateAttribute(updateAttributeRequest,id);
         return ResponseEntity.ok("Attributed updated succesfully");
     }
 
-    @DeleteMapping
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<?> deleteAttribute(int id) {
         this.attributeService.deleteAttribute(id);
         return ResponseEntity.ok("Attributed deleted succesfully");

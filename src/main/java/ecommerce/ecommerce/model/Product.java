@@ -1,5 +1,6 @@
 package ecommerce.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -39,6 +40,7 @@ public class Product extends BaseEntity {
             joinColumns = @JoinColumn(name = "product_id"),// Product ile ilişki
             inverseJoinColumns = @JoinColumn(name = "category_id")// Category ile ilişki
     )
+    @JsonIgnore
     private Set<Category> categories = new HashSet<>();
 
 

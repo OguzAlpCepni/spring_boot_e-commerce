@@ -1,5 +1,6 @@
 package ecommerce.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Category {
     private Set<Product> products = new HashSet<Product>();
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private Set<CategoryAttribute> categoryAttributes;
 
     public int getCategoryId() {

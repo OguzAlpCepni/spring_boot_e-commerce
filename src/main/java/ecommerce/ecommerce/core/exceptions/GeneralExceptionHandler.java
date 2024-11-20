@@ -34,10 +34,7 @@ public class GeneralExceptionHandler {
         // Hata mesajlarını içeren bir ResponseEntity döndürüyoruz
         return new ResponseEntity<>(errorMessages, HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<?> handle(NoProductFoundException noProductFoundException){
-        return new ResponseEntity<>(noProductFoundException.getMessage(), HttpStatus.NOT_FOUND);
-    }
+
     @ExceptionHandler(SkuIsNotUnique.class)
     public ResponseEntity<?> handle(SkuIsNotUnique skuIsNotUnique){
         return new ResponseEntity<>(skuIsNotUnique.getMessage(), HttpStatus.BAD_REQUEST);

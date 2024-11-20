@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateProductRequest {
@@ -30,6 +29,6 @@ public class CreateProductRequest {
     @NotBlank(message = "SKU cannot be empty")
     @Size(min = 3, max = 50, message = "sku must be between 3 and 50 characters.")
     private String sku;
-    @NotNull(message = "Categories cannot be null")
+    //@NotNull(message = "Categories cannot be null")
     private Set<Category> categories = new HashSet<Category>();
 }
