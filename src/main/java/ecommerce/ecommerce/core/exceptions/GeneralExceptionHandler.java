@@ -52,6 +52,11 @@ public class GeneralExceptionHandler {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(AttributeNotFoundException.class)
+    public ResponseEntity<?> handle(AttributeNotFoundException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
 
 }
 

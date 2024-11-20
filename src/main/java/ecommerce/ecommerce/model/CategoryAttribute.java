@@ -7,7 +7,8 @@ import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "category_attribute")
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class CategoryAttribute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
