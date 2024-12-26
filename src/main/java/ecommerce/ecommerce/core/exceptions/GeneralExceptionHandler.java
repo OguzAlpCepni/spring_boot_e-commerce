@@ -54,6 +54,9 @@ public class GeneralExceptionHandler {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handle(UserNotFoundException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }
 

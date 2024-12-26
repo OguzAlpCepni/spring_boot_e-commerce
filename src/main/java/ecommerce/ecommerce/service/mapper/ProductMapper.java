@@ -4,6 +4,7 @@ import ecommerce.ecommerce.core.Dtos.ProductDtos.*;
 import ecommerce.ecommerce.model.Product;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,7 @@ public class ProductMapper {
     }
     public List<GetAllProductResponse> toGetAllProductResponse(List<Product> products) {
         // this::toGetAllProductResponse burada bit method referancı tutuyor yani
-        // this.toHetAllProductResponse(product) labnda ile donusümü bu
+        // this.toGetAllProductResponse(product) labnda ile donusümü bu
         return products.stream().map(this::toGetAllProductResponse).collect(Collectors.toList());
     }
 
@@ -39,6 +40,8 @@ public class ProductMapper {
                 createProductRequest.getDescription(),
                 createProductRequest.getUnitInStock(),
                 createProductRequest.getSku(),
+                new ArrayList<>(),
+                new ArrayList<>(),
                 createProductRequest.getCategories()
         );
     }

@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,6 +34,14 @@ public class Product extends BaseEntity {
     private int unitInStock;
     @Column(name = "sku")
     private String sku;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    private List<BasketItem> basketItems = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    private List<BasketItem> OrderItem = new ArrayList<>();
 
     @ManyToMany()
     @JoinTable(

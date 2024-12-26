@@ -27,7 +27,7 @@ public class ProductBusinessRules {
     public void CheckProductSkuIsUnique(String sku){
         boolean exists = productRepository.existsById(sku);
         if(exists){
-            throw new SkuIsNotUnique("Product Sku is already in use , sku must be null: "+sku);
+            throw new SkuIsNotUnique("Product Sku is already in use , sku must be unique: "+sku);
 
         }
     }

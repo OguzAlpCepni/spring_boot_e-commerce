@@ -50,6 +50,7 @@ public class ProductManager implements ProductService {
     @Override
     @Transactional
     public void UpdateproductById(UpdateProductByIdRequest updateProductByIdRequest,String id) {
+        productBusinessRules.CheckProductSkuIsUnique(updateProductByIdRequest.getSku());
         Product product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException("Product could not found by id : " +id));
         productMapper.mappingToProductForUpdateById(updateProductByIdRequest,product);
         productRepository.save(product);

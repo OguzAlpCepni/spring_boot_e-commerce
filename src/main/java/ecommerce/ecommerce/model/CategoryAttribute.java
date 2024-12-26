@@ -1,9 +1,9 @@
 package ecommerce.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "category_attribute")
@@ -16,10 +16,12 @@ public class CategoryAttribute {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
+    @JsonIgnore
     private Category category;
 
     @ManyToOne
     @JoinColumn(name = "attribute_id")
+
     private Attribute attribute;
 
     public int getId() {

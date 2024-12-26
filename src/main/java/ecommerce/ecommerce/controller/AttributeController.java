@@ -6,6 +6,7 @@ import ecommerce.ecommerce.core.Dtos.AttributeDtos.GetByIdAttributeResponse;
 import ecommerce.ecommerce.core.Dtos.AttributeDtos.UpdateAttributeRequest;
 import ecommerce.ecommerce.service.abstracts.AttributeService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class AttributeController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addAttribute(@RequestBody CreateAttributeRequest createAttributeRequest) {
+    public ResponseEntity<?> addAttribute(@RequestBody @Validated CreateAttributeRequest createAttributeRequest) {
         this.attributeService.addAttribute(createAttributeRequest);
         return ResponseEntity.ok("Attributed added succesfully");
     }
