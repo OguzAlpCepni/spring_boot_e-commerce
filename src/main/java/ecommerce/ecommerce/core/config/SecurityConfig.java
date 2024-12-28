@@ -53,8 +53,13 @@ public class SecurityConfig {
                         x
                                 .requestMatchers(HttpMethod.GET,"/v1/product/**").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/v1/product/**").hasAnyRole("SELLER","ADMIN")
-                                .requestMatchers(HttpMethod.PUT,"v1/product/**").hasAnyRole("SELLER","ADMIN")
-                                .requestMatchers(HttpMethod.DELETE,"v1/product/**").hasAnyRole("SELLER","ADMIN")
+                                .requestMatchers(HttpMethod.PUT,"/v1/product/**").hasAnyRole("SELLER","ADMIN")
+                                .requestMatchers(HttpMethod.DELETE,"/v1/product/**").hasAnyRole("SELLER","ADMIN")
+                                .requestMatchers(HttpMethod.GET,"/v1/attribute/**").hasAnyRole("CUSTOMER","ADMIN")
+                                .requestMatchers(HttpMethod.POST,"/v1/attribute/**").hasAnyRole("CUSTOMER","ADMIN")
+                                .requestMatchers(HttpMethod.POST,"/v1/category-attribute").hasAnyRole("CUSTOMER","ADMIN")
+
+                                .requestMatchers(HttpMethod.GET,"/v1/category/**").hasAnyRole("CUSTOMER","ADMIN")
                 )
                 .authorizeHttpRequests(x ->
                         x
