@@ -28,7 +28,7 @@ public class OrderItem {
     @Column(name = "item_price")
     private BigDecimal itemPrice;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "product_id")
     private Product product;
 

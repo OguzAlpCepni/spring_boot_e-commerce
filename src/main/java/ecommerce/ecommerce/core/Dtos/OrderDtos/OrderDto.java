@@ -14,7 +14,7 @@ public class OrderDto {
     private List<OrderItemDto> orderItems;
     private BigDecimal totalPrice;
     private String userId;
-    private OrderStatus status;
+    private Status status;
 
     public String getOrderId() {
         return orderId;
@@ -48,11 +48,11 @@ public class OrderDto {
         this.userId = userId;
     }
 
-    public OrderStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(OrderStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }

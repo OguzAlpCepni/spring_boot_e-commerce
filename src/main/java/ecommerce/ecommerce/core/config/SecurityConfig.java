@@ -65,6 +65,12 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.PUT,"/v1/basket/**").hasAnyRole("ADMIN","CUSTOMER")
 
                 )
+                .authorizeHttpRequests(x->
+                        x
+                                .requestMatchers(HttpMethod.POST,"/v1/orders/createOrderFromBasket").hasAnyRole("ADMIN","CUSTOMER")
+                                .requestMatchers(HttpMethod.POST,"/v1/orders/process/orderId/{orderId}").hasAnyRole("ADMIN","CUSTOMER")
+
+                )
                 .sessionManagement(x -> x.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
