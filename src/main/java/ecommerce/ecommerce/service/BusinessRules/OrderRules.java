@@ -45,6 +45,11 @@ public class OrderRules {
             throw new IllegalStateException("Principal is not an instance of user.");
         }
     }
+    public void CheckTheBasketIsEmpty(Basket basket){
+        if(basket.getBasketItems().isEmpty()){
+            throw new EmptyBasketException("Basket is so dont create order");
+        }
+    }
     public User getCustomer(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

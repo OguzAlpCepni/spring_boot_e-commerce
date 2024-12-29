@@ -36,6 +36,7 @@ public class OrderManager implements OrderService {
     @Transactional
     public OrderDto createOrderFromBasket() {
         Basket basket = orderRules.getCustomerBasketForOrder();
+
         orderRules.checkTheProductStockForOrder(basket);
         Order order = orderRules.CreateOrder(basket);
         basket.getBasketItems().clear();

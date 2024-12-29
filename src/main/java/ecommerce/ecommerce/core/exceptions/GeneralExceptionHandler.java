@@ -58,5 +58,10 @@ public class GeneralExceptionHandler {
     public ResponseEntity<?> handle(UserNotFoundException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler
+    public ResponseEntity<?> handle(EmptyBasketException exception){
+        return new ResponseEntity<>(exception.getMessage(),HttpStatus.NOT_FOUND);
+    }
 }
 
