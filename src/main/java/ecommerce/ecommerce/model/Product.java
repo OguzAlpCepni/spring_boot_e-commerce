@@ -39,10 +39,10 @@ public class Product extends BaseEntity {
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     private List<BasketItem> basketItems = new ArrayList<>();
 
+
     @JsonIgnore
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     private List<OrderItem> OrderItem = new ArrayList<>();
-
     @ManyToMany()
     @JoinTable(
             name="product_category",// ortak tablo adi
