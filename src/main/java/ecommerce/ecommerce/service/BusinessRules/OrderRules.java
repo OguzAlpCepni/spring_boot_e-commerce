@@ -133,6 +133,7 @@ public class OrderRules {
             updateProductStock(orderItem, orderItem.getQuantity());
         }
     }
+
     public PaymentResponse processPayment(PaymentRequest paymentRequest) {
         /// Ödeme işlemini simüle et
         if (isValidCard(paymentRequest.getCardNumber())) {

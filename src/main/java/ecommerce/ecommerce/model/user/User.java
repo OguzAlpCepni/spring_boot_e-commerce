@@ -2,6 +2,7 @@ package ecommerce.ecommerce.model.user;
 
 import ecommerce.ecommerce.model.Basket;
 import ecommerce.ecommerce.model.Order;
+import ecommerce.ecommerce.model.UserAccount;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -51,6 +52,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
+    @OneToMany(mappedBy = "userForAccount",cascade = CascadeType.ALL)
+    private List<UserAccount> userAccounts = new ArrayList<>();
 
 
 
